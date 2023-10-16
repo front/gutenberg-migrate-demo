@@ -1,0 +1,30 @@
+uuid: 0c4ad6fc-9984-4852-b697-bc56d661e264
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.gutenberg_type.body
+    - node.type.gutenberg_type
+  module:
+    - text
+    - user
+id: node.gutenberg_type.teaser
+targetEntityType: node
+bundle: gutenberg_type
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

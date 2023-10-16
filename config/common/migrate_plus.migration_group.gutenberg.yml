@@ -1,0 +1,10 @@
+uuid: b3395d6f-1e06-4d02-b674-7dc2fb5cf31a
+langcode: en
+status: true
+dependencies: {  }
+id: gutenberg
+label: gutenberg
+description: ''
+source_type: null
+module: null
+shared_configuration: null

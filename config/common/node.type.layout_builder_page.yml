@@ -1,0 +1,18 @@
+uuid: 43022b3a-df4f-4048-a12c-9c56cfdb29b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Layout builder page'
+type: layout_builder_page
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true
