@@ -1,0 +1,28 @@
+id: article_example
+migration_group: gutenberg
+label: Article example
+source:
+  plugin: content_entity:node
+  bundle: article_type
+  include_translations: false
+process:
+  langcode: langcode
+  type:
+    plugin: default_value
+    default_value: gutenberg_type
+  status: status
+  uid: uid
+  title: title
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  default_langcode: default_langcode
+  revision_default: revision_default
+  revision_translation_affected: revision_translation_affected
+  path: path
+  body:
+    plugin: html_to_gutenberg
+    source: body
+destination:
+  plugin: entity:node
