@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace Drupal\gutenberg_migrate_example;
 
@@ -44,7 +46,7 @@ final class GutenbergMarkupGenerator {
     // Parse the HTML and put it into the blocks we know of.
     $unique_id = uniqid('temp-wrapper');
     $crawler = new Crawler(sprintf('<div class="%s">%s</div>', $unique_id, $regular_html));
-    $crawler->filter((string) sprintf('.%s', $unique_id))->children()->each(function(Crawler $item_crawler) use (&$gutenberg_html) {
+    $crawler->filter((string) sprintf('.%s', $unique_id))->children()->each(function (Crawler $item_crawler) use (&$gutenberg_html) {
 
       switch ($item_crawler->nodeName()) {
         case 'p':
@@ -83,6 +85,9 @@ final class GutenbergMarkupGenerator {
     return $gutenberg_html;
   }
 
+  /**
+   * Helper to get the gutenberg HTML from an image file.
+   */
   public function generateGutenbergHtmlFromImageFile(FileInterface $file) : string {
     $path = $this->fileUrlGenerator->generateString($file->getFileUri());
     return sprintf('
