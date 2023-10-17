@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Module hooks.
+ */
+
+/**
+ * Implements hook_migration_plugins_alter().
+ */
+function gutenberg_migrate_example_migration_plugins_alter(array &$migrations) {
+  // Unset this so that the drupal annoying error in
+  // migrate_drupal_migration_plugins_alter does not trigger.
+  if (isset($migrations['system_site'])) {
+    unset($migrations['system_site']);
+  }
+  $unused_ones = [
+    'block_content_type',
+    'block_content_body_field',
+    'block_content_entity_display',
+    'block_content_entity_form_display',
+    'd6_upload_field',
+    'user_picture_field',
+  ];
+  foreach ($unused_ones as $unused_one) {
+    if (isset($migrations[$unused_one])) {
+      unset($migrations[$unused_one]);
+    }
+  }
+}
